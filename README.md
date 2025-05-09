@@ -1,22 +1,41 @@
 # Twoblade Proxy
 
-This Proxy connects Twoblade(And other clones) a email service build by FaceDev and uses SHARP instead of the usual email protocol with normal email.
+This proxy connects Twoblade (and other clones), an email service built by FaceDev, and uses SHARP instead of the usual email protocol for normal email communication.
 
-## Setup 
+## Setup
 
-1. Clone the repository to your local machine.
+### 1. Clone the repository
 
-2. Change the logins in 2b_to_email and email_to_2b.
+Clone the repository to your local machine.
 
-3. Build the Docker image:
+```bash
+git clone <repository-url>
+```
 
-    ```bash
-    docker build -t twoblade-proxy .
- and
-    
-    ```bash
-    docker run my-python-scripts
+### 2. Configure logins
 
-or just run them 
+Update the login credentials in the following scripts:
 
+* `2b_to_email.py`
+* `email_to_2b.py`
+
+Make sure you replace the placeholder login information with your own credentials.
+
+### 3. Build the Docker image
+
+Build the Docker image using the following command:
+
+```bash
+docker build -t twoblade-proxy .
+```
+
+### 4. Run the Docker container
+
+You can now run the Docker container using:
+
+```bash
+docker run my-python-scripts
+```
+
+Alternatively, if you prefer, you can run the scripts directly without using Docker.
 
