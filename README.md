@@ -34,7 +34,7 @@ docker build -t twoblade-proxy .
 You can now run the Docker container using:
 
 ```bash
-docker run my-python-scripts
+docker run twoblade-proxy
 ```
 
 Alternatively, if you prefer, you can run the scripts directly without using Docker.
