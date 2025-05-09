@@ -12,8 +12,9 @@ This Proxy connects Twoblade(And other clones) a email service build by FaceDev 
 
     ```bash
     docker build -t twoblade-proxy .
-    `` 
+
     and
+    
     ```bash
     docker run my-python-scripts
 
