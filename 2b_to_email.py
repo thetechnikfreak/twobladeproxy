@@ -6,28 +6,51 @@ import re
 
 # ---------- CONFIGURATION ----------
 WEB_INBOX_URL = "https://twoblade.com/inbox/__data.json?x-sveltekit-invalidated=11"
-HEADERS = {
-    "accept": "*/*",
-    "cookie": "auth_token="",
-    "user-agent": "Mozilla/5.0 ..."
-}
 
 # SMTP CONFIG
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
+SMTP_SERVER = ""
+SMTP_PORT = ""
 SMTP_USER = ""
 SMTP_PASS = ""
 
-# ---------- PROGRAM ----------
-last_seen_id = None
+# ==== Twoblade Credentials ====
+username = ""
+password = ""
 
+# ---------- PROGRAM ----------
+HEADERSLOGIN = {
+    "accept": "application/json",
+    "accept-language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7",
+    "content-type": "application/x-www-form-urlencoded",
+    "origin": "https://twoblade.com",
+    "priority": "u=1, i",
+    "referer": "https://twoblade.com/login",
+    "sec-ch-ua": '"Chromium";v="131", "Not_A Brand";v="24"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "x-sveltekit-action": "true"
+}
+session = requests.Session()
+payload = {"username": username, "password": password}
+r = session.post("https://twoblade.com/login", data=payload, headers=HEADERSLOGIN)
+authtoken = r.cookies.get("auth_token")
+print("GOT AUTH TOKEN")
+last_seen_id = None
+HEADERS = {
+    "accept": "*/*",
+    "cookie": f"auth_token={authtoken}",
+    "user-agent": "Mozilla/5.0 ..."
+}
 def check_new_email():
     global last_seen_id
     try:
         response = requests.get(WEB_INBOX_URL, headers=HEADERS)
         response.raise_for_status()
         data = response.json()
-
         email_node = data["nodes"][1]["data"]
         field_map = email_node[2]
 
