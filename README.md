@@ -1,6 +1,6 @@
 # Twoblade Proxy
 
-This proxy connects Twoblade (and other clones), an email service built by FaceDev, and uses SHARP instead of the usual email protocol for normal email communication.
+This proxy connects [Twoblade](https://twoblade.com/) (and clones), an email service built by [FaceDev](https://github.com/face-hh), and uses SHARP instead of the usual email protocol for normal email communication.
 
 ## Setup
 
@@ -39,3 +39,6 @@ docker run twoblade-proxy
 
 Alternatively, if you prefer, you can run the scripts directly without using Docker.
 
+### Thanks
+Thanks to [FaceDEV](https://github.com/face-hh) for youre intresting Email Provider
+and [Rose](https://github.com/rosegoldd) for helping auth with auth and the hashcode.
