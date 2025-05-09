@@ -9,7 +9,7 @@ This proxy connects Twoblade (and other clones), an email service built by FaceD
 Clone the repository to your local machine.
 
 ```bash
-git clone <repository-url>
+git clone github.com/thetechnikfreak/twobladeproxy
 ```
 
 ### 2. Configure logins
