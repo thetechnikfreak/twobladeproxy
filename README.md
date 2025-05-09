@@ -14,7 +14,7 @@ It can take up to 1 Minute for mails to arrive and my Acc on **[Twoblade](https:
 Clone the repository to your local machine.
 
 ```bash
-git clone github.com/thetechnikfreak/twobladeproxy
+git clone [github.com/thetechnikfreak/twobladeproxy](https://github.com/thetechnikfreak/twobladeproxy/)
 ```
 
 ### 2. Configure logins
